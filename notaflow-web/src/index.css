@@ -1,0 +1,116 @@
+/* src/index.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #535bf2;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:hover {
+  border-color: #646cff;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+}
+
+/* Dark-mode overrides: make light gradient sections and light borders fully dark */
+@media (prefers-color-scheme: dark) {
+  :root {
+    color: #e6eef6;
+    background-color: #000000;
+  }
+}
+
+/* When using the 'dark' class, force utility classes that set light
+   backgrounds to use a true dark background so text remains readable. */
+.dark .bg-white,
+.dark .bg-gradient-to-r.from-green-50.to-emerald-50,
+.dark .bg-gradient-to-r.from-green-50,
+.dark .from-green-50,
+.dark .to-emerald-50,
+.dark .bg-gradient-to-r.from-blue-50.to-indigo-50,
+.dark .bg-gradient-to-r.from-blue-50,
+.dark .from-blue-50,
+.dark .to-indigo-50 {
+  background-image: none !important;
+  background-color: #000000 !important;
+  color: #ffffff !important;
+}
+
+.dark .border-gray-200 {
+  border-color: #0b0b0b !important;
+}
+
+/* Ensure inner text in those sections is white */
+.dark .bg-gradient-to-r.from-green-50.to-emerald-50 *,
+.dark .from-green-50 *,
+.dark .to-emerald-50 *,
+.dark .bg-gradient-to-r.from-blue-50.to-indigo-50 *,
+.dark .bg-gradient-to-r.from-blue-50 *,
+.dark .from-blue-50 *,
+.dark .to-indigo-50 * {
+  color: #ffffff !important;
+}
+
+/* Specific border-bottom override when both classes are present */
+.dark .border-b.border-gray-200 {
+  border-bottom-color: #0b0b0b !important;
+}
