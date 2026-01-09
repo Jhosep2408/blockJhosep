@@ -25,7 +25,7 @@ COPY . .
 RUN mkdir -p storage/framework/{cache,sessions,views} \
  && chmod -R 775 storage bootstrap/cache \
  && chown -R www-data:www-data storage bootstrap/cache
- 
+
 # Instalar dependencias Laravel
 RUN composer install --no-dev --optimize-autoloader
 
@@ -38,5 +38,7 @@ RUN sed -i 's|/var/www/html|/var/www/html/public|g' /etc/apache2/sites-available
 
 
 EXPOSE 80
+
+CMD php artisan migrate --force && apache2-foreground
 
 CMD ["apache2-foreground"]
