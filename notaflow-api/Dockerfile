@@ -22,8 +22,10 @@ WORKDIR /var/www/html
 COPY . .
 
 # Permisos
-RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache
-
+RUN mkdir -p storage/framework/{cache,sessions,views} \
+ && chmod -R 775 storage bootstrap/cache \
+ && chown -R www-data:www-data storage bootstrap/cache
+ 
 # Instalar dependencias Laravel
 RUN composer install --no-dev --optimize-autoloader
 
